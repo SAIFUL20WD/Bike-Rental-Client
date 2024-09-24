@@ -8,7 +8,7 @@ const authApi = baseApi.injectEndpoints({
 				method: "POST",
 				body: userInfo,
 			}),
-			invalidatesTags: ["user"],
+			invalidatesTags: ["user", "rentals"],
 		}),
 		register: builder.mutation({
 			query: (userInfo) => ({
