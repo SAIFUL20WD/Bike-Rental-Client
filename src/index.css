@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	/* font-family: "Inter", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal; */
+}
+/* width */
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px grey;
+	border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #6b68e7;
+	border-radius: 10px;
+}
+
+/* NAVIGATION 
+
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+	transition: all 0.5s;
+}
+
+nav ul li a:hover {
+	color: #6b68e7;
+}
+
+nav ul li a {
+	position: relative;
+}
+
+nav ul li a:after {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 0%;
+	content: "";
+	color: transparent;
+	background: #6b68e7;
+	height: 2px;
+}
+
+nav ul li a:hover:after {
+	width: 100%;
+}
+	*/
+
+blockquote {
+	font-size: 1.2em;
+	line-height: 1.5em;
+}
+
+blockquote:before {
+	content: open-quote;
+}
+
+blockquote:after {
+	content: close-quote;
+}
+
+blockquote:before,
+blockquote:after {
+	display: inline-block;
+	vertical-align: bottom;
+	color: dodgerblue;
+	font-size: 4em;
+	top: 0.2em;
+	position: relative;
+}
