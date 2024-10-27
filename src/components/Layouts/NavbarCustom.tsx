@@ -71,7 +71,7 @@ const NavbarCustom = () => {
 								isActive ? "active" : ""
 							}
 						>
-							Dahsboard
+							Dashboard
 						</NavLink>
 					</Navbar.Link>
 				) : (
@@ -95,6 +95,16 @@ const NavbarCustom = () => {
 						}
 					>
 						About
+					</NavLink>
+				</Navbar.Link>
+				<Navbar.Link as="span">
+					<NavLink
+						to="/contact"
+						className={({ isActive }) =>
+							isActive ? "text-blue-600" : ""
+						}
+					>
+						Contact
 					</NavLink>
 				</Navbar.Link>
 				<Navbar.Link as="span">

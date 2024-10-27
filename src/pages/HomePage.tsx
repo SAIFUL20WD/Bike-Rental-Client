@@ -1,4 +1,3 @@
-import ContactUs from "../components/Home/ContactUs";
 import CouponDiscount from "../components/Home/CouponDiscount";
 import Featured from "../components/Home/Featured";
 import Hero from "../components/Home/Hero";
@@ -13,7 +12,6 @@ const HomePage = () => {
 			<Testimonials />
 			<WhyChooseUs />
 			<CouponDiscount />
-			<ContactUs />
 		</>
 	);
 };

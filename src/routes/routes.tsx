@@ -17,6 +17,7 @@ import Rentals from "../components/Dashboard/Rentals";
 import Coupons from "../components/Dashboard/Coupons";
 import ProtectedRoute from "../components/ProtectedRoute";
 import ComparePage from "../pages/ComparePage";
+import ContactPage from "../pages/ContactPage";
 
 const router = createBrowserRouter([
 	{
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
 			{
 				path: "about",
 				element: <AboutUsPage />,
+			},
+			{
+				path: "contact",
+				element: <ContactPage />,
 			},
 			{
 				path: "compare",

@@ -1,22 +1,24 @@
 import { Button, Label, Textarea, TextInput } from "flowbite-react";
 import contact from "../../assets/images/contact_us_alternative.png";
 import { useFormik } from "formik";
+import toast from "react-hot-toast";
 
 const ContactUs = () => {
 	const formik = useFormik({
 		initialValues: { name: "", email: "", message: "" },
 		onSubmit: (values) => {
-			console.log(values);
+			toast.success("Message sent successfully!");
+			formik.resetForm();
 		},
 	});
 
 	return (
-		<section className="my-16">
+		<section className="my-5">
 			<h3 className="text-center text-3xl capitalize mb-5">
 				Contact
 				<span className="text-blue-600"> us</span>
 			</h3>
-			<div className="grid grid-cols-12 gap-10 shadow p-10">
+			<div className="grid grid-cols-12 gap-10 shadow p-10 ml-6 mr-3">
 				<div className="col-span-6 max-lg:col-span-12">
 					<img src={contact} alt="contact" />
 				</div>
@@ -32,6 +34,7 @@ const ContactUs = () => {
 							id="name"
 							type="text"
 							placeholder="Your Name"
+							value={formik.values.name}
 							required
 							onChange={formik.handleChange}
 						/>
@@ -44,6 +47,7 @@ const ContactUs = () => {
 							id="email"
 							type="email"
 							placeholder="Your Email"
+							value={formik.values.email}
 							required
 							onChange={formik.handleChange}
 						/>
@@ -55,6 +59,7 @@ const ContactUs = () => {
 						<Textarea
 							id="message"
 							placeholder="Your Message..."
+							value={formik.values.message}
 							required
 							rows={4}
 							onChange={formik.handleChange}

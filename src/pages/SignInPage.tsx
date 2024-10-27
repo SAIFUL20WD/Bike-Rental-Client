@@ -55,6 +55,20 @@ const SignInPage = () => {
 		},
 	});
 
+	const handleFillAdminCredential = () => {
+		formik.setValues({
+			email: "rasel@email.com",
+			password: "Rasel123",
+		});
+	};
+
+	const handleFillUserCredential = () => {
+		formik.setValues({
+			email: "tarek@email.com",
+			password: "Tarek123",
+		});
+	};
+
 	return (
 		<section className="max-w-5xl mx-auto my-16 py-10">
 			<Toaster />
@@ -68,11 +82,28 @@ const SignInPage = () => {
 						Good to see you again!
 					</h3>
 					<img src={signinImg} alt="sign-in-illustration" />
+					<Link to="/" className="flex justify-center">
+						<Button color="blue">Go Home</Button>
+					</Link>
 				</div>
 				<form
 					className="col-span-6 self-center max-lg:col-span-12 flex max-w-md flex-col gap-4 mx-5"
 					onSubmit={formik.handleSubmit}
 				>
+					<p className="text-primary-600">
+						Use Below Option To Use Demo Credential
+					</p>
+					<div className="flex gap-5">
+						<Button
+							color="blue"
+							onClick={handleFillAdminCredential}
+						>
+							Fill Admin Credential
+						</Button>
+						<Button color="blue" onClick={handleFillUserCredential}>
+							Fill User Credential
+						</Button>
+					</div>
 					<div>
 						<div className="mb-2 block">
 							<Label htmlFor="email" value="Email" />
@@ -81,6 +112,7 @@ const SignInPage = () => {
 							id="email"
 							type="email"
 							placeholder="Your Email"
+							value={formik.values.email}
 							required
 							onChange={formik.handleChange}
 							onBlur={formik.handleBlur}
@@ -101,6 +133,7 @@ const SignInPage = () => {
 							id="password"
 							type="password"
 							placeholder="Your Password"
+							value={formik.values.password}
 							required
 							onChange={formik.handleChange}
 							onBlur={formik.handleBlur}
@@ -127,11 +160,6 @@ const SignInPage = () => {
 						</Link>
 					</p>
 				</form>
-			</div>
-			<div className="flex justify-center my-5">
-				<Link to="/">
-					<Button color="blue">Go Home</Button>
-				</Link>
 			</div>
 		</section>
 	);

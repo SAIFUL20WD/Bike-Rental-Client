@@ -74,6 +74,9 @@ const SignUpPage = () => {
 						Hello! Welcome
 					</h3>
 					<img src={signupImg} alt="sign-up-illustration" />
+					<Link to="/" className="flex justify-center">
+						<Button color="blue">Go Home</Button>
+					</Link>
 				</div>
 
 				<form
@@ -201,12 +204,6 @@ const SignUpPage = () => {
 						</Link>
 					</p>
 				</form>
-			</div>
-
-			<div className="flex justify-center my-5">
-				<Link to="/">
-					<Button color="blue">Go Home</Button>
-				</Link>
 			</div>
 		</section>
 	);

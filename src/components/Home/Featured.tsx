@@ -7,12 +7,12 @@ const Featured = () => {
 	const { data } = useGetBikesByTagQuery("featured");
 
 	return (
-		<section className="my-16">
+		<section className="my-10">
 			<h3 className="text-center text-3xl capitalize mb-5">
 				Featured
 				<span className="text-blue-600"> bikes</span>
 			</h3>
-			<div className="grid grid-cols-12 gap-5">
+			<div className="grid grid-cols-12 gap-3 ml-1 -mr-1">
 				{data?.data ? (
 					data.data.map((bike: TBike) => {
 						return (

@@ -3,6 +3,7 @@ import {
 	Card,
 	Checkbox,
 	Label,
+	Pagination,
 	Spinner,
 	TextInput,
 } from "flowbite-react";
@@ -24,6 +25,10 @@ const AllBikesPage = () => {
 	const searchRef = useRef<HTMLInputElement>(null);
 	const [query, setQuery] = useState("");
 
+	const [currentPage, setCurrentPage] = useState(1);
+	const [totalPages, setTotalPages] = useState(3);
+	const [offset, setOffset] = useState(0);
+
 	const [search, setSearch] = useState("");
 	const [available, setAvailable] = useState<string>("");
 	const [brands, setbrands] = useState<string[]>([]);
@@ -35,6 +40,15 @@ const AllBikesPage = () => {
 
 	const { data: brandsData } = useGetAllBrandsQuery(undefined);
 	const { data: modelsData } = useGetAllModelsQuery(undefined);
+
+	const onPageChange = (page: number) => {
+		setCurrentPage(page);
+		setOffset((page - 1) * 10);
+		if (data?.data?.length > 8) {
+			setTotalPages(page + 1);
+		}
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	};
 
 	const handleBrandChange = (e, brand: string) => {
 		const duplicate = brands.find((ele) => ele === brand);
@@ -74,16 +88,16 @@ const AllBikesPage = () => {
 	useEffect(() => {
 		const brandList = brands?.join(",");
 		const modelList = models?.join(",");
-		const customQuery = `name=${search}&brands=${brandList}&models=${modelList}&availabilty=${available}`;
+		const customQuery = `offset=${offset}&name=${search}&brands=${brandList}&models=${modelList}&availabilty=${available}`;
 		setQuery(customQuery);
 		if (query) {
 			refetch();
 		}
-	}, [search, brands, models, available, refetch, query]);
+	}, [offset, search, brands, models, available, refetch, query]);
 
 	return (
 		<>
-			<div className="my-5 relative">
+			<div className="my-5 relative ml-7">
 				<TextInput
 					id="seacrh"
 					placeholder="Enter Bike Name"
@@ -97,7 +111,7 @@ const AllBikesPage = () => {
 			</div>
 			<Toaster />
 			<section className="flex my-10">
-				<aside className="w-80 border-r-2 border-gray-200 bg-gray-50 p-5 mr-10 dark:bg-gray-800">
+				<aside className="w-80 ml-7 order-r-2 border-gray-200 bg-gray-100 p-5 mr-10 dark:bg-gray-800">
 					<div className="flex justify-between">
 						<h3 className="text-xl font-bold p-2">Filters</h3>
 						<Button color="failure" onClick={handleClearFilter}>
@@ -117,10 +131,10 @@ const AllBikesPage = () => {
 						</div>
 						<div className="flex items-center gap-2 my-2">
 							<Checkbox
-								id="available"
+								id="notAvailable"
 								onChange={() => setAvailable("notAvailable")}
 							/>
-							<Label htmlFor="available">Not Available</Label>
+							<Label htmlFor="notAvailable">Not Available</Label>
 						</div>
 					</div>
 					<div className="my-3">
@@ -217,6 +231,19 @@ const AllBikesPage = () => {
 					)}
 				</div>
 			</section>
+			<div className="flex justify-end mb-5 mr-5">
+				{search ||
+				available ||
+				brands.length > 0 ||
+				models.length > 0 ? null : (
+					<Pagination
+						currentPage={currentPage}
+						totalPages={totalPages}
+						onPageChange={onPageChange}
+						showIcons
+					/>
+				)}
+			</div>
 		</>
 	);
 };

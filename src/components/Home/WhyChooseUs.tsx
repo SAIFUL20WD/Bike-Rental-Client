@@ -28,7 +28,7 @@ const chooseData = [
 
 const WhyChooseUs = () => {
 	return (
-		<section className="my-16">
+		<section className="my-16 mx-5">
 			<h4 className="text-center text-3xl capitalize">
 				Why choose <span className="text-blue-600"> us</span>
 			</h4>

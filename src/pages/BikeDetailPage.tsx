@@ -29,7 +29,7 @@ const BikeDetailPage = () => {
 			<section className="max-w-5xl mx-auto my-10 shadow p-10">
 				<div className="grid grid-cols-2 max-md:grid-cols-1">
 					<div className="col-span-1 max-md:mx-5 lg:mr-5">
-						<img src={image} alt="" />
+						<img src={image} alt="bike image" className="rounded" />
 					</div>
 					<div className="col-span-1 max-md:mx-5">
 						<div className="pb-5 border-b border-zinc-200">

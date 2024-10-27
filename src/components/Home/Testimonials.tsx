@@ -42,7 +42,7 @@ const Testimonials = () => {
 	});
 
 	return (
-		<section className="my-16">
+		<section className="my-16 mx-2">
 			<h3 className="text-center text-3xl capitalize mb-5">
 				What our users have to
 				<span className="text-blue-600"> say</span>
