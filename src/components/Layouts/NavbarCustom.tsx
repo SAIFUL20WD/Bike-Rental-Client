@@ -16,107 +16,112 @@ const NavbarCustom = () => {
 	};
 
 	return (
-		<Navbar
-			fluid
-			rounded
-			onLoad={() => {
-				const token = localStorage.getItem("token");
-				if (token) {
-					setLoggedIn(true);
-				}
-			}}
-		>
-			<Navbar.Brand as="div">
-				<NavLink to="/">
-					<img src={logo} className="w-32 mr-3" alt="Logo" />
-				</NavLink>
-			</Navbar.Brand>
-			<div className="flex md:order-2">
-				<div className="mr-5">
-					<DarkThemeToggle />
-				</div>
-				{loggedIn ? (
-					<Button
-						color="purple"
-						className="uppercase"
-						onClick={handleLogOut}
-					>
-						Logout
-					</Button>
-				) : (
-					<NavLink to="/sign-in">
-						<Button color="blue" className="uppercase">
-							Login
+		<div className="w-full">
+			<Navbar
+				fluid
+				rounded
+				onLoad={() => {
+					const token = localStorage.getItem("token");
+					if (token) {
+						setLoggedIn(true);
+					}
+				}}
+				className="max-w-7xl mx-auto"
+			>
+				<Navbar.Brand as="div">
+					<NavLink to="/">
+						<img src={logo} className="w-32 mr-3" alt="Logo" />
+					</NavLink>
+				</Navbar.Brand>
+				<div className="flex md:order-2">
+					<div className="mr-5">
+						<DarkThemeToggle />
+					</div>
+					{loggedIn ? (
+						<Button
+							color="purple"
+							className="uppercase"
+							onClick={handleLogOut}
+						>
+							Logout
 						</Button>
-					</NavLink>
-				)}
-				<Navbar.Toggle />
-			</div>
-			<Navbar.Collapse className="uppercase">
-				<Navbar.Link as="span">
-					<NavLink
-						to="/"
-						className={({ isActive }) =>
-							isActive ? "text-blue-600" : ""
-						}
-					>
-						Home
-					</NavLink>
-				</Navbar.Link>
-				{loggedIn ? (
+					) : (
+						<NavLink to="/sign-in">
+							<Button color="blue" className="uppercase">
+								Login
+							</Button>
+						</NavLink>
+					)}
+					<Navbar.Toggle />
+				</div>
+				<Navbar.Collapse className="uppercase">
 					<Navbar.Link as="span">
 						<NavLink
-							to="/dashboard"
+							to="/"
+							className={({ isActive }) =>
+								isActive ? "text-blue-600" : ""
+							}
+						>
+							Home
+						</NavLink>
+					</Navbar.Link>
+					{loggedIn ? (
+						<Navbar.Link as="span">
+							<NavLink
+								to="/dashboard"
+								className={({ isActive }) =>
+									isActive ? "active" : ""
+								}
+							>
+								Dashboard
+							</NavLink>
+						</Navbar.Link>
+					) : (
+						""
+					)}
+					<Navbar.Link as="span">
+						<NavLink
+							to="/all-bikes"
+							className={({ isActive }) =>
+								isActive ? "text-blue-600" : ""
+							}
+						>
+							All Bikes
+						</NavLink>
+					</Navbar.Link>
+					<Navbar.Link as="span">
+						<NavLink
+							to="/about"
+							className={({ isActive }) =>
+								isActive ? "text-blue-600" : ""
+							}
+						>
+							About
+						</NavLink>
+					</Navbar.Link>
+					<Navbar.Link as="span">
+						<NavLink
+							to="/contact"
+							className={({ isActive }) =>
+								isActive ? "text-blue-600" : ""
+							}
+						>
+							Contact
+						</NavLink>
+					</Navbar.Link>
+					<Navbar.Link as="span">
+						<NavLink
+							to="/compare"
 							className={({ isActive }) =>
 								isActive ? "active" : ""
 							}
 						>
-							Dashboard
+							Compare
 						</NavLink>
 					</Navbar.Link>
-				) : (
-					""
-				)}
-				<Navbar.Link as="span">
-					<NavLink
-						to="/all-bikes"
-						className={({ isActive }) =>
-							isActive ? "text-blue-600" : ""
-						}
-					>
-						All Bikes
-					</NavLink>
-				</Navbar.Link>
-				<Navbar.Link as="span">
-					<NavLink
-						to="/about"
-						className={({ isActive }) =>
-							isActive ? "text-blue-600" : ""
-						}
-					>
-						About
-					</NavLink>
-				</Navbar.Link>
-				<Navbar.Link as="span">
-					<NavLink
-						to="/contact"
-						className={({ isActive }) =>
-							isActive ? "text-blue-600" : ""
-						}
-					>
-						Contact
-					</NavLink>
-				</Navbar.Link>
-				<Navbar.Link as="span">
-					<NavLink
-						to="/compare"
-						className={({ isActive }) => (isActive ? "active" : "")}
-					>
-						Compare
-					</NavLink>
-				</Navbar.Link>
-			</Navbar.Collapse>
-		</Navbar>
+				</Navbar.Collapse>
+			</Navbar>
+		</div>
 	);
 };
 

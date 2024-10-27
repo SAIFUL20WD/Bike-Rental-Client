@@ -9,9 +9,9 @@ import {
 
 const FooterCustom = () => {
 	return (
-		<Footer bgDark>
+		<Footer bgDark className="rounded-none">
 			<div className="w-full">
-				<div className="grid w-full grid-cols-2 gap-8 px-6 py-8 md:grid-cols-4">
+				<div className="max-w-7xl mx-auto grid grid-cols-2 gap-8 px-6 py-8 md:grid-cols-4">
 					<div>
 						<Footer.Title title="Company" />
 						<Footer.LinkGroup col>
@@ -50,18 +50,20 @@ const FooterCustom = () => {
 						</Footer.LinkGroup>
 					</div>
 				</div>
-				<div className="w-full bg-gray-700 px-4 py-6 sm:flex sm:items-center sm:justify-between">
-					<Footer.Copyright
-						href="#"
-						by="BikeGo™"
-						year={new Date().getFullYear()}
-					/>
-					<div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-						<Footer.Icon href="#" icon={BsFacebook} />
-						<Footer.Icon href="#" icon={BsInstagram} />
-						<Footer.Icon href="#" icon={BsTwitter} />
-						<Footer.Icon href="#" icon={BsGithub} />
-						<Footer.Icon href="#" icon={BsDribbble} />
+				<div className="bg-gray-700 px-4 py-6">
+					<div className="max-w-7xl mx-auto sm:flex sm:items-center sm:justify-center gap-10">
+						<Footer.Copyright
+							href="#"
+							by="BikeGo™"
+							year={new Date().getFullYear()}
+						/>
+						<div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
+							<Footer.Icon href="#" icon={BsFacebook} />
+							<Footer.Icon href="#" icon={BsInstagram} />
+							<Footer.Icon href="#" icon={BsTwitter} />
+							<Footer.Icon href="#" icon={BsGithub} />
+							<Footer.Icon href="#" icon={BsDribbble} />
+						</div>
 					</div>
 				</div>
 			</div>
